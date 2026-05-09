@@ -1,8 +1,11 @@
+import random
 from typing import Optional, List
 from .logger import logger
 from .config import config, ArchitectConfig
 from ..core.graph import ArchitectureGraph
 from ..core.dsl import ArchitectureDSL
+from ..evolution.search_space import SearchSpace
+from ..hardware.constraints import HardwareConstraints, HardwareEvaluator
 
 class Architect:
     """
@@ -12,31 +15,43 @@ class Architect:
     def __init__(self, config_override: Optional[ArchitectConfig] = None):
         self.config = config_override or config
         logger.info(f"🚀 Initializing [bold blue]ArchitectAI[/bold blue] - Project: [green]{self.config.project_name}[/green]")
+        self.search_space = SearchSpace()
         self.best_graph: Optional[ArchitectureGraph] = None
 
-    def discover(self, task: str, iterations: int = 100) -> ArchitectureGraph:
+    def discover(self, 
+                 task: str, 
+                 iterations: int = 10, 
+                 constraints: Optional[HardwareConstraints] = None) -> ArchitectureGraph:
         """
         Start the automated architecture discovery process.
         """
         logger.info(f"🔍 Starting discovery for task: [yellow]{task}[/yellow] with [cyan]{iterations}[/cyan] iterations")
         
-        # This is where the evolutionary engine and reasoning engine would be called.
-        # For now, we'll create a simple dummy architecture using the DSL.
+        evaluator = HardwareEvaluator(constraints or HardwareConstraints())
+        best_score = -1
         
-        dsl = ArchitectureDSL(f"best_{task}_model")
-        graph = (
-            dsl.input([3, 224, 224])
-            .conv2d(32)
-            .relu()
-            .conv2d(64)
-            .relu()
-            .linear(10)
-            .build()
-        )
+        for i in range(iterations):
+            # Sample a candidate
+            candidate = self.search_space.sample_random_architecture(depth=random.randint(3, 8))
+            
+            # Check constraints
+            if evaluator.satisfies(candidate):
+                # In a real scenario, we would train and evaluate accuracy here.
+                # For this demo, we'll use a random score if it fits the hardware.
+                score = random.random()
+                if score > best_score:
+                    best_score = score
+                    self.best_graph = candidate
+                    logger.debug(f"Iter {i}: Found new best architecture (score: {score:.4f})")
+            else:
+                logger.debug(f"Iter {i}: Candidate rejected by hardware constraints")
         
-        self.best_graph = graph
-        logger.info("✨ Discovery complete. Best architecture found.")
-        return graph
+        if self.best_graph:
+            logger.info(f"✨ Discovery complete. Best architecture found with score: [green]{best_score:.4f}[/green]")
+        else:
+            logger.warning("⚠️ No architecture found that satisfies the given constraints.")
+            
+        return self.best_graph
 
     def export(self, graph: ArchitectureGraph, path: str):
         """
