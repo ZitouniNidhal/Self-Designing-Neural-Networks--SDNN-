@@ -1,0 +1,1 @@
+"""ArchitectAI CLI package."""

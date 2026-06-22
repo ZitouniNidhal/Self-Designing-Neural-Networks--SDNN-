@@ -57,6 +57,11 @@ class Architect:
         """
         Export the architecture graph to a file or compile to code.
         """
+        if graph is None:
+            raise ValueError("No architecture graph available to export.")
+
         logger.info(f"📦 Exporting best architecture to [magenta]{path}[/magenta]")
-        # Implementation for code generation or serialization
-        pass
+        from ..codegen.compiler import Compiler
+
+        compiler = Compiler()
+        compiler.compile_to_file(graph, path)
