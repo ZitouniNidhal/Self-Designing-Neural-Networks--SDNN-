@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class BaseEvaluator(ABC):
     """Base class for dataset and task evaluators."""
 

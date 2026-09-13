@@ -2,6 +2,7 @@ from typing import List
 from ..core.graph import ArchitectureGraph
 from ..core.primitives import OperationType
 
+
 class PyTorchGenerator:
     """Generate a PyTorch module from an architecture graph."""
 

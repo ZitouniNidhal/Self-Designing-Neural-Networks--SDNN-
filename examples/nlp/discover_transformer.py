@@ -7,13 +7,7 @@ from architectai.hardware.constraints import HardwareConstraints
 
 def build_sample_architecture():
     dsl = ArchitectureDSL("transformer_explorer")
-    return (
-        dsl.input([128])
-        .linear(128)
-        .relu()
-        .linear(64)
-        .build()
-    )
+    return dsl.input([128]).linear(128).relu().linear(64).build()
 
 
 def main(output_path: str | None = None):

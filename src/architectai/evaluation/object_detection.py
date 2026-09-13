@@ -1,5 +1,6 @@
 from .base import BaseEvaluator
 
+
 class ObjectDetectionEvaluator(BaseEvaluator):
     def evaluate(self, graph, data=None):
         return {"mAP": 0.0}

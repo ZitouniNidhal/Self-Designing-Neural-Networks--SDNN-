@@ -1,6 +1,7 @@
 import pytest
 from architectai.core.dsl import ArchitectureDSL
 
+
 @pytest.fixture
 def sample_graph():
     dsl = ArchitectureDSL("fixture_model")

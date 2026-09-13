@@ -3,6 +3,7 @@ from pathlib import Path
 from ..core.graph import ArchitectureGraph
 from .pytorch_generator import PyTorchGenerator
 
+
 class Compiler:
     """Compiler for translating architecture graphs into export formats."""
 

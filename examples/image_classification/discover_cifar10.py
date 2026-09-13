@@ -7,15 +7,7 @@ from architectai.hardware.constraints import HardwareConstraints
 
 def build_sample_architecture():
     dsl = ArchitectureDSL("cifar10_explorer")
-    return (
-        dsl.input([3, 32, 32])
-        .conv2d(32)
-        .relu()
-        .conv2d(64)
-        .relu()
-        .linear(10)
-        .build()
-    )
+    return dsl.input([3, 32, 32]).conv2d(32).relu().conv2d(64).relu().linear(10).build()
 
 
 def main(output_path: str | None = None):
