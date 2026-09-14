@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  architectai-api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: architectai_api
+    ports:
+      - "8000:8000"
+    environment:
+      - ARCHITECT_ENV=production
+      - LOG_LEVEL=INFO
+    volumes:
+      - ../experiments:/app/experiments
+    restart: unless-stopped
+
+  architectai-worker:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: architectai_worker
+    command: ["benchmark"]
+    environment:
+      - ARCHITECT_ENV=production
+    volumes:
+      - ../experiments:/app/experiments
+    restart: on-failure

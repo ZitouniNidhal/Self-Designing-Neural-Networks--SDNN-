@@ -1,0 +1,21 @@
+task: image_classification
+dataset: cifar10
+input_shape: [3, 32, 32]
+num_classes: 10
+search_space:
+  max_depth: 10
+  available_ops:
+    - conv2d
+    - maxpool2d
+    - relu
+    - batchnorm
+  filters: [16, 32, 64]
+hardware_constraints:
+  max_params: 500000
+  max_memory_mb: 256
+  target_device: generic_cpu
+evolution:
+  population_size: 20
+  generations: 10
+  mutation_rate: 0.3
+  crossover_rate: 0.5

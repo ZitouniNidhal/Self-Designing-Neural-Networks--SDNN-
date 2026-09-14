@@ -1,0 +1,22 @@
+task: image_classification
+dataset: imagenet
+input_shape: [3, 224, 224]
+num_classes: 1000
+search_space:
+  max_depth: 25
+  available_ops:
+    - conv2d
+    - maxpool2d
+    - avgpool2d
+    - relu
+    - batchnorm
+  filters: [64, 128, 256, 512]
+hardware_constraints:
+  max_params: 25000000
+  max_memory_mb: 4096
+  target_device: nvidia_t4
+evolution:
+  population_size: 50
+  generations: 25
+  mutation_rate: 0.25
+  crossover_rate: 0.6

@@ -1,0 +1,20 @@
+task: sequence_modeling
+dataset: wikitext-2
+input_shape: [128, 768]
+vocab_size: 30000
+search_space:
+  max_depth: 12
+  available_ops:
+    - linear
+    - relu
+    - identity
+  embedding_dim: 768
+hardware_constraints:
+  max_params: 10000000
+  max_memory_mb: 1024
+  target_device: generic_cpu
+evolution:
+  population_size: 30
+  generations: 15
+  mutation_rate: 0.3
+  crossover_rate: 0.5
