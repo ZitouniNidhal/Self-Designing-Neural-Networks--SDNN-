@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Optional
 
 from architectai import Architect
 from architectai.core.dsl import ArchitectureDSL
@@ -10,7 +11,7 @@ def build_sample_architecture():
     return dsl.input([3, 32, 32]).conv2d(32).relu().conv2d(64).relu().linear(10).build()
 
 
-def main(output_path: str | None = None):
+def main(output_path: Optional[str] = None):
     output_path = output_path or "experiments/results/cifar10_example.py"
     constraints = HardwareConstraints(max_params=500_000, max_memory_mb=256)
     architect = Architect()
