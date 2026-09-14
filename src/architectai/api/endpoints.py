@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+
 from ..core.graph import ArchitectureGraph
 
 router = APIRouter()

@@ -1,5 +1,5 @@
 from architectai.core.graph import ArchitectureGraph
-from architectai.core.primitives import Primitive, NodeConfig, OperationType
+from architectai.core.primitives import NodeConfig, OperationType, Primitive
 
 
 def test_graph_connection():

@@ -1,11 +1,12 @@
 import random
-from typing import Optional, List
-from .logger import logger
-from .config import config, ArchitectConfig
-from ..core.graph import ArchitectureGraph
+from typing import List, Optional
+
 from ..core.dsl import ArchitectureDSL
+from ..core.graph import ArchitectureGraph
 from ..evolution.search_space import SearchSpace
 from ..hardware.constraints import HardwareConstraints, HardwareEvaluator
+from .config import ArchitectConfig, config
+from .logger import logger
 
 
 class Architect:

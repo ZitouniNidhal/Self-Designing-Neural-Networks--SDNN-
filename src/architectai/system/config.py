@@ -1,6 +1,7 @@
-from typing import Optional, Dict, Any
-from pydantic_settings import BaseSettings
+from typing import Any, Dict, Optional
+
 from pydantic import Field
+from pydantic_settings import BaseSettings
 
 
 class EvolutionConfig(BaseSettings):

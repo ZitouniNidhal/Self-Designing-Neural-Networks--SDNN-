@@ -1,6 +1,7 @@
 from typing import List, Optional
+
 from .graph import ArchitectureGraph
-from .primitives import Primitive, NodeConfig, OperationType
+from .primitives import NodeConfig, OperationType, Primitive
 
 
 class ArchitectureDSL:

@@ -1,4 +1,5 @@
 import pytest
+
 from architectai.core.dsl import ArchitectureDSL
 
 

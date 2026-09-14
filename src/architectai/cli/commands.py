@@ -1,7 +1,8 @@
 import click
 from rich.console import Console
-from .args import CLIArgs
+
 from ..system.architectai import Architect
+from .args import CLIArgs
 
 console = Console()
 

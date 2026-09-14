@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+
 from ..core.graph import ArchitectureGraph
 from .pytorch_generator import PyTorchGenerator
 

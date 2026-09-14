@@ -1,7 +1,8 @@
 import logging
 import sys
-from rich.logging import RichHandler
+
 from rich.console import Console
+from rich.logging import RichHandler
 
 
 def setup_logger(name: str = "architectai", level: str = "INFO"):

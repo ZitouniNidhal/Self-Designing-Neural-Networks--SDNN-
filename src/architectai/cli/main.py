@@ -1,5 +1,6 @@
 import click
 from rich.console import Console
+
 from ..system.architectai import Architect
 from ..system.config import config
 

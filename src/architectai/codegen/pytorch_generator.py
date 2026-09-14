@@ -1,4 +1,5 @@
 from typing import List
+
 from ..core.graph import ArchitectureGraph
 from ..core.primitives import OperationType
 

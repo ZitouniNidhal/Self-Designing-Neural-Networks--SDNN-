@@ -1,5 +1,6 @@
 import random
 from typing import List, Optional
+
 from ..core.dsl import ArchitectureDSL
 from ..core.graph import ArchitectureGraph
 from ..core.primitives import OperationType

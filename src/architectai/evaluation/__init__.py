@@ -2,11 +2,11 @@
 
 from .base import BaseEvaluator
 from .image_classification import ImageClassificationEvaluator
+from .metrics import compute_accuracy, compute_f1
 from .multimodal import MultimodalEvaluator
 from .object_detection import ObjectDetectionEvaluator
-from .sequence_modeling import SequenceModelingEvaluator
 from .profiler import Profiler
-from .metrics import compute_accuracy, compute_f1
+from .sequence_modeling import SequenceModelingEvaluator
 
 __all__ = [
     "BaseEvaluator",

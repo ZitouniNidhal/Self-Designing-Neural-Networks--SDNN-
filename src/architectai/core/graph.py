@@ -1,6 +1,8 @@
-import networkx as nx
 from typing import Dict, List, Optional, Set
-from .primitives import Primitive, Connection
+
+import networkx as nx
+
+from .primitives import Connection, Primitive
 
 
 class ArchitectureGraph:
