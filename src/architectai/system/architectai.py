@@ -61,7 +61,7 @@ class Architect:
 
         return self.best_graph
 
-    def export(self, graph: ArchitectureGraph, path: str):
+    def export(self, graph: Optional[ArchitectureGraph], path: str):
         """Export the architecture graph to a file or compile to code."""
         if graph is None:
             raise ValueError("No architecture graph available to export.")
