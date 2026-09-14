@@ -1,4 +1,4 @@
-<![CDATA[<div align="center">
+
 
 # 🧠 ArchitectAI
 
@@ -352,5 +352,4 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 Built with ❤️ by [ZitouniNidhal](https://github.com/ZitouniNidhal)
 
-</div>
-]]>
+
