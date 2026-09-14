@@ -1,12 +1,22 @@
+# ==============================================================================
+# Comprehensive .gitignore for Self-Designing Neural Networks (SDNN / ArchitectAI)
+# ==============================================================================
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-
-# C extensions
 *.so
+*.dylib
+*.dll
 
-# Distribution / packaging
+# C/C++ build artifacts & extensions
+*.o
+*.obj
+*.a
+*.lib
+
+# Distribution / Packaging / Builds
 bin/
 build/
 develop-eggs/
@@ -18,69 +28,72 @@ parts/
 sdist/
 var/
 wheels/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-# PyInstaller
-#  Often these are Python scripts but contain binary data
+# PyInstaller / Executables
 *.manifest
 *.spec
 
-# Unit test / coverage reports
+# Unit Test, Coverage, and Benchmark Reports
 htmlcov/
 .tox/
+.nox/
 .coverage
 .coverage.*
 .cache
 nosetests.xml
 coverage.xml
 *.cover
+*.pyo
 .hypothesis/
 .pytest_cache/
+benchmark_results/
 
-# Jupyter Notebook
+# Linters, Type Checkers & Formatters
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.dmypy.json
+dmypy.json
+
+# Jupyter Notebook & Lab
 .ipynb_checkpoints
+*-checkpoint.ipynb
 
-# pyenv
-.python-version
-
-# celery beat schedule file
-celerybeat-schedule
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
+# Environment & Secret Variables
 .env
+.env.*
+!.env.example
 .venv
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
+.python-version
 
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# IDE & Editors
+# IDEs, Editors & Tooling
 .vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 .idea/
 *.swp
 *.swo
+*~
+.project
+.pydevproject
+.settings/
+.spyderproject
+.spyproject
+.ropeproject
 
-# mypy & linters
-.mypy_cache/
-.ruff_cache/
-
-# OS generated files
+# OS Generated Files
 .DS_Store
 .DS_Store?
 ._*
@@ -88,12 +101,36 @@ venv.bak/
 .Trashes
 ehthumbs.db
 Thumbs.db
+Desktop.ini
 
-# Logs & Temporary files
+# Logs & Temporary Files
 *.log
 logs/
+tmp/
+temp/
+scratch/
+*.tmp
 
-# SDNN specific
+# Documentation Build Artifacts
+/site
+docs/_build/
+_build/
+
+# ML Frameworks, Model Weights & Datasets
+*.pt
+*.pth
+*.onnx
+*.tflite
+*.safetensors
+*.h5
+*.hdf5
+*.bin
+*.ckpt
+dataset_cache/
+data_raw/
+data_processed/
+
+# SDNN Specific Output Directories
 experiments/results/*
 !experiments/results/.gitkeep
 models/*.pt
