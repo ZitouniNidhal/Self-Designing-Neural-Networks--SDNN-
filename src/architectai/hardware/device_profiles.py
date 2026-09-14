@@ -59,4 +59,3 @@ def get_device_profile(name: str) -> Dict[str, Any]:
 def list_devices() -> List[str]:
     """Return list of available device profile identifiers."""
     return list(DEVICE_PROFILES.keys())
-

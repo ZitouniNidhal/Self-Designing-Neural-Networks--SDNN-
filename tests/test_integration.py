@@ -1,5 +1,3 @@
-from pathlib import Path
-
 from architectai import Architect
 from architectai.core.dsl import ArchitectureDSL
 from architectai.hardware.constraints import HardwareConstraints

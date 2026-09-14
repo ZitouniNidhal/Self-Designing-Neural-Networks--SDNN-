@@ -76,4 +76,3 @@ class ReasoningEngine:
             "pattern_score": pattern_score,
             "total_score": pattern_score if is_valid else 0.0,
         }
-

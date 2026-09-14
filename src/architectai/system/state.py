@@ -62,4 +62,3 @@ class SystemState:
             "elapsed_seconds": elapsed,
             "history_length": len(self.history),
         }
-

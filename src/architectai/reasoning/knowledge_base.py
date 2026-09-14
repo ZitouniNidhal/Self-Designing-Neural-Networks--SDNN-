@@ -40,4 +40,3 @@ class KnowledgeBase:
     def list_patterns(self) -> List[str]:
         """List all known pattern names."""
         return list(self._patterns.keys())
-

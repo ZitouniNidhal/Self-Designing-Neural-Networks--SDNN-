@@ -34,4 +34,3 @@ class Explainer:
         lines.append(f"- Layer Composition: {len(ops)} operations ({set(ops)})")
 
         return "\n".join(lines)
-

@@ -84,4 +84,3 @@ class Mutator:
             graph.add_node(new_node)
             graph.add_connection(src_id, new_id)
             graph.add_connection(new_id, dst_id)
-

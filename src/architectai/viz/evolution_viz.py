@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional
+from typing import Dict, List, Optional
 
 
 def plot_evolution(
@@ -33,4 +33,3 @@ def plot_evolution(
     except Exception:
         summary = [f"Generation {i+1}: Best = {max_scores[i]:.4f}" for i in range(len(history))]
         return "\n".join(summary)
-

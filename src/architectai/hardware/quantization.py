@@ -40,4 +40,3 @@ class Quantizer:
             "quantized_mb": round(quantized_mb, 2),
             "compression_ratio": ratio,
         }
-

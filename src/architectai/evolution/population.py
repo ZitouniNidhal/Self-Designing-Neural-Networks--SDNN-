@@ -1,5 +1,5 @@
 import statistics
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional
 
 from ..core.graph import ArchitectureGraph
 
@@ -73,4 +73,3 @@ class Population:
 
     def __len__(self) -> int:
         return len(self.individuals)
-

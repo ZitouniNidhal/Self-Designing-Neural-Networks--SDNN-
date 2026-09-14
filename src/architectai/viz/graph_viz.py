@@ -41,4 +41,3 @@ def plot_graph(
         for src, dst in graph.graph.edges():
             lines.append(f"  {src} -> {dst}")
         return "\n".join(lines)
-

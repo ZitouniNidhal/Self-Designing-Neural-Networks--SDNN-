@@ -48,4 +48,3 @@ class Profiler:
             "estimated_memory_mb": round(memory_mb, 4),
             "num_layers": len(graph.primitives),
         }
-

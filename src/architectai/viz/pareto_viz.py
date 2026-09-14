@@ -40,4 +40,3 @@ def plot_pareto(
     except Exception:
         summary = [f"{n}: Params={p}, Acc={a:.4f}" for n, p, a in zip(names, params, accuracies)]
         return "\n".join(summary)
-

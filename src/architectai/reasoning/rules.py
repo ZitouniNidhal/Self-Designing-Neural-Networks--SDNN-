@@ -77,4 +77,3 @@ class MaxDepthRule(Rule):
         if depth <= self.max_depth:
             return True, f"Graph depth {depth} <= {self.max_depth}."
         return False, f"Graph depth {depth} exceeds max depth {self.max_depth}."
-

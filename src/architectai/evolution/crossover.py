@@ -57,4 +57,3 @@ class Crossover:
             last_id = new_id
 
         return child
-

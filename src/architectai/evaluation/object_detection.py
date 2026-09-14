@@ -30,4 +30,3 @@ class ObjectDetectionEvaluator(BaseEvaluator):
         map_val = results.get("mAP", 0.0)
         fps = results.get("fps", 0.0)
         return f"Object Detection - mAP@50: {map_val:.4f}, Inference speed: {fps:.1f} FPS"
-

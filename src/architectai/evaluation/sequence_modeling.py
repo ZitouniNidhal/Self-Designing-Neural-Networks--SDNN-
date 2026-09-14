@@ -29,4 +29,3 @@ class SequenceModelingEvaluator(BaseEvaluator):
         ppl = results.get("perplexity", 0.0)
         bleu = results.get("bleu_score", 0.0)
         return f"Sequence Modeling - Perplexity: {ppl:.2f}, BLEU: {bleu:.2f}"
-

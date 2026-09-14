@@ -70,4 +70,3 @@ class Selector:
 
         probs = [s / total for s in adj_scores]
         return random.choices(candidates, weights=probs, k=k)
-

@@ -49,4 +49,3 @@ def generate_report(
         return f"Report saved to {save_path}"
 
     return report_content
-
