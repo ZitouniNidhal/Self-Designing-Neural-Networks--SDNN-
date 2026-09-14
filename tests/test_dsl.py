@@ -1,5 +1,3 @@
-import pytest
-
 from architectai.core.dsl import ArchitectureDSL
 from architectai.core.graph import ArchitectureGraph
 from architectai.core.primitives import OperationType

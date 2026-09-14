@@ -1,5 +1,3 @@
-import tempfile
-
 from architectai.codegen.compiler import Compiler
 from architectai.core.dsl import ArchitectureDSL
 

@@ -26,9 +26,11 @@ class HardwareEvaluator:
             if primitive.config.op == "conv2d":
                 # Very rough: filters * kernel^2 * in_channels
                 # This needs proper shape tracking to be accurate
-                total_params += primitive.config.params.get("filters", 32) * 9 * 3
+                filters = primitive.config.params.get("filters", 32)
+                total_params += filters * 9 * 3
             elif primitive.config.op == "linear":
-                total_params += primitive.config.params.get("out_features", 10) * 100
+                out_feat = primitive.config.params.get("out_features", 10)
+                total_params += out_feat * 100
         return total_params
 
     def satisfies(self, graph: ArchitectureGraph) -> bool:

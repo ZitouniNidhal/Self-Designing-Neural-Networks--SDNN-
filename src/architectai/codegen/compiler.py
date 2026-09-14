@@ -16,4 +16,5 @@ class Compiler:
             code = PyTorchGenerator(graph).generate()
             target.write_text(code, encoding="utf-8")
         else:
-            target.write_text(json.dumps(graph.to_dict(), indent=2), encoding="utf-8")
+            content = json.dumps(graph.to_dict(), indent=2)
+            target.write_text(content, encoding="utf-8")

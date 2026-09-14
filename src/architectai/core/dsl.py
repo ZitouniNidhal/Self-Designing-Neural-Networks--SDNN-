@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List
 
 from .graph import ArchitectureGraph
 from .primitives import NodeConfig, OperationType, Primitive
@@ -19,19 +19,27 @@ class ArchitectureDSL:
     def input(self, shape: List[int]) -> "ArchitectureDSL":
         node_id = self._generate_id("input")
         primitive = Primitive(
-            id=node_id, config=NodeConfig(op=OperationType.IDENTITY), output_shape=shape
+            id=node_id,
+            config=NodeConfig(op=OperationType.IDENTITY),
+            output_shape=shape,
         )
         self.graph.add_node(primitive)
         self._last_node_id = node_id
         return self
 
-    def conv2d(self, filters: int, kernel_size: int = 3, stride: int = 1) -> "ArchitectureDSL":
+    def conv2d(
+        self, filters: int, kernel_size: int = 3, stride: int = 1
+    ) -> "ArchitectureDSL":
         node_id = self._generate_id("conv2d")
         primitive = Primitive(
             id=node_id,
             config=NodeConfig(
                 op=OperationType.CONV2D,
-                params={"filters": filters, "kernel_size": kernel_size, "stride": stride},
+                params={
+                    "filters": filters,
+                    "kernel_size": kernel_size,
+                    "stride": stride,
+                },
             ),
         )
         self.graph.add_node(primitive)
@@ -42,7 +50,9 @@ class ArchitectureDSL:
 
     def relu(self) -> "ArchitectureDSL":
         node_id = self._generate_id("relu")
-        primitive = Primitive(id=node_id, config=NodeConfig(op=OperationType.RELU))
+        primitive = Primitive(
+            id=node_id, config=NodeConfig(op=OperationType.RELU)
+        )
         self.graph.add_node(primitive)
         if self._last_node_id:
             self.graph.add_connection(self._last_node_id, node_id)
@@ -53,7 +63,10 @@ class ArchitectureDSL:
         node_id = self._generate_id("linear")
         primitive = Primitive(
             id=node_id,
-            config=NodeConfig(op=OperationType.LINEAR, params={"out_features": out_features}),
+            config=NodeConfig(
+                op=OperationType.LINEAR,
+                params={"out_features": out_features},
+            ),
         )
         self.graph.add_node(primitive)
         if self._last_node_id:
