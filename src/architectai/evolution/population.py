@@ -1,10 +1,10 @@
-from typing import List
+from typing import List, Optional
 
 from ..core.graph import ArchitectureGraph
 
 
 class Population:
-    def __init__(self, individuals: List[ArchitectureGraph] = None):
+    def __init__(self, individuals: Optional[List[ArchitectureGraph]] = None):
         self.individuals = individuals or []
 
     def add(self, graph: ArchitectureGraph):

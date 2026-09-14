@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from .graph import ArchitectureGraph
 from .primitives import NodeConfig, OperationType, Primitive
@@ -10,7 +10,7 @@ class ArchitectureDSL:
     def __init__(self, name: str = "custom_model"):
         self.graph = ArchitectureGraph(name)
         self._node_counter = 0
-        self._last_node_id = None
+        self._last_node_id: Optional[str] = None
 
     def _generate_id(self, prefix: str) -> str:
         self._node_counter += 1

@@ -25,7 +25,7 @@ class Architect:
         task: str,
         iterations: int = 10,
         constraints: Optional[HardwareConstraints] = None,
-    ) -> ArchitectureGraph:
+    ) -> Optional[ArchitectureGraph]:
         """Start the automated architecture discovery process."""
         logger.info(
             f"🔍 Starting discovery for task: [yellow]{task}[/yellow] "
@@ -33,7 +33,7 @@ class Architect:
         )
 
         evaluator = HardwareEvaluator(constraints or HardwareConstraints())
-        best_score = -1
+        best_score: float = -1.0
 
         for i in range(iterations):
             # Sample a candidate
