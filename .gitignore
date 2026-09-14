@@ -70,8 +70,15 @@ venv.bak/
 # mkdocs documentation
 /site
 
-# mypy
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# mypy & linters
 .mypy_cache/
+.ruff_cache/
 
 # OS generated files
 .DS_Store
@@ -81,6 +88,10 @@ venv.bak/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Logs & Temporary files
+*.log
+logs/
 
 # SDNN specific
 experiments/results/*
