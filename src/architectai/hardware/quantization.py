@@ -22,9 +22,7 @@ class Quantizer:
             primitive = quantized.primitives[nid]
             params = dict(primitive.config.params)
             params["precision"] = self.precision
-            primitive.config = NodeConfig(
-                op=primitive.config.op, params=params
-            )
+            primitive.config = NodeConfig(op=primitive.config.op, params=params)
 
         return quantized
 

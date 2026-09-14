@@ -37,9 +37,7 @@ def compute_top_k_accuracy(
 
     correct = 0
     for prob, t in zip(predictions_prob, targets):
-        top_k_indices = sorted(
-            range(len(prob)), key=lambda i: prob[i], reverse=True
-        )[:k]
+        top_k_indices = sorted(range(len(prob)), key=lambda i: prob[i], reverse=True)[:k]
         if t in top_k_indices:
             correct += 1
 
@@ -50,15 +48,11 @@ def compute_mse(predictions: Sequence[float], targets: Sequence[float]) -> float
     """Compute Mean Squared Error."""
     if not predictions or len(predictions) != len(targets):
         return 0.0
-    return sum((p - t) ** 2 for p, t in zip(predictions, targets)) / len(
-        predictions
-    )
+    return sum((p - t) ** 2 for p, t in zip(predictions, targets)) / len(predictions)
 
 
 def compute_mae(predictions: Sequence[float], targets: Sequence[float]) -> float:
     """Compute Mean Absolute Error."""
     if not predictions or len(predictions) != len(targets):
         return 0.0
-    return sum(abs(p - t) for p, t in zip(predictions, targets)) / len(
-        predictions
-    )
+    return sum(abs(p - t) for p, t in zip(predictions, targets)) / len(predictions)

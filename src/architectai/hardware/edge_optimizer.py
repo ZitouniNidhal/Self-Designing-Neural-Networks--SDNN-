@@ -22,9 +22,7 @@ class EdgeOptimizer:
         optimized = copy.deepcopy(graph)
         optimized.name = f"{graph.name}_edge_opt"
 
-        cap_filters = max_filters or (
-            64 if self.profile["category"] == "edge" else 128
-        )
+        cap_filters = max_filters or (64 if self.profile["category"] == "edge" else 128)
 
         for nid in list(optimized.primitives.keys()):
             primitive = optimized.primitives[nid]
@@ -41,8 +39,6 @@ class EdgeOptimizer:
                 if params.get("kernel_size", 3) > 3:
                     params["kernel_size"] = 3
 
-                primitive.config = NodeConfig(
-                    op=OperationType.CONV2D, params=params
-                )
+                primitive.config = NodeConfig(op=OperationType.CONV2D, params=params)
 
         return optimized

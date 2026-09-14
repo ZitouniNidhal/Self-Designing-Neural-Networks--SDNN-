@@ -12,9 +12,7 @@ class Crossover:
         self, parent_a: ArchitectureGraph, parent_b: ArchitectureGraph
     ) -> ArchitectureGraph:
         """Combine layer prefix from parent_a with layer suffix from parent_b."""
-        child = ArchitectureGraph(
-            name=f"crossover_{parent_a.name}_{parent_b.name}"
-        )
+        child = ArchitectureGraph(name=f"crossover_{parent_a.name}_{parent_b.name}")
 
         nodes_a = parent_a.topological_sort()
         nodes_b = parent_b.topological_sort()

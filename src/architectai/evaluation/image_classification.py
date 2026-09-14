@@ -10,9 +10,7 @@ class ImageClassificationEvaluator(BaseEvaluator):
     def __init__(self):
         self.profiler = Profiler()
 
-    def evaluate(
-        self, graph: Any, data: Optional[Any] = None
-    ) -> Dict[str, float]:
+    def evaluate(self, graph: Any, data: Optional[Any] = None) -> Dict[str, float]:
         stats = self.profiler.profile(graph)
         params = stats["params"]
 

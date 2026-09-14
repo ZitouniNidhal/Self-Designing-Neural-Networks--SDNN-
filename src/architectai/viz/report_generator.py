@@ -1,9 +1,7 @@
 from typing import Any, Dict, Optional
 
 
-def generate_report(
-    results: Dict[str, Any], save_path: Optional[str] = None
-) -> str:
+def generate_report(results: Dict[str, Any], save_path: Optional[str] = None) -> str:
     """Generate a Markdown report summarizing an architectural discovery run."""
     task = results.get("task", "image_classification")
     generations = results.get("generations", 0)

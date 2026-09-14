@@ -32,9 +32,7 @@ class Selector:
             return self._roulette_select(candidates, scores, k)
         else:
             # Default to top-k by score
-            indexed = sorted(
-                zip(candidates, scores), key=lambda x: x[1], reverse=True
-            )
+            indexed = sorted(zip(candidates, scores), key=lambda x: x[1], reverse=True)
             return [cand for cand, _ in indexed[:k]]
 
     def _tournament_select(

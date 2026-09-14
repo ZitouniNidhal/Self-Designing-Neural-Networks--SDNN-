@@ -10,9 +10,7 @@ def analyze_results(results_dir: str = "experiments/results") -> Dict[str, Any]:
     if not path.exists():
         return {"total_files": 0, "files": [], "status": "no results directory"}
 
-    files: List[str] = [
-        str(p.name) for p in path.glob("**/*") if p.is_file()
-    ]
+    files: List[str] = [str(p.name) for p in path.glob("**/*") if p.is_file()]
     total_size = sum(p.stat().st_size for p in path.glob("**/*") if p.is_file())
 
     report = {

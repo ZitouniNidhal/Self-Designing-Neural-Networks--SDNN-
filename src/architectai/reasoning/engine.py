@@ -50,9 +50,7 @@ class ReasoningEngine:
         except Exception:
             return 0.0
 
-        op_seq = [
-            str(graph.get_primitive(nid).config.op).lower() for nid in topo
-        ]
+        op_seq = [str(graph.get_primitive(nid).config.op).lower() for nid in topo]
         score = 0.5  # Base score
 
         # Check for conv -> batchnorm -> relu

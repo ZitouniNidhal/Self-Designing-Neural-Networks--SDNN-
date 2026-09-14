@@ -22,16 +22,10 @@ def build_imagenet_architecture():
 
 
 def main(output_path: Optional[str] = None):
-    output_path = (
-        output_path or "experiments/results/imagenet_example.py"
-    )
-    constraints = HardwareConstraints(
-        max_params=25_000_000, max_memory_mb=4096
-    )
+    output_path = output_path or "experiments/results/imagenet_example.py"
+    constraints = HardwareConstraints(max_params=25_000_000, max_memory_mb=4096)
     architect = Architect()
-    graph = architect.discover(
-        task="image_classification", iterations=10, constraints=constraints
-    )
+    graph = architect.discover(task="image_classification", iterations=10, constraints=constraints)
 
     if graph is None:
         graph = build_imagenet_architecture()

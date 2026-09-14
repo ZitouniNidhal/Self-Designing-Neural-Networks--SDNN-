@@ -1,9 +1,7 @@
 from typing import Any, Dict, List, Optional
 
 
-def plot_pareto(
-    records: List[Dict[str, Any]], save_path: Optional[str] = None
-) -> str:
+def plot_pareto(records: List[Dict[str, Any]], save_path: Optional[str] = None) -> str:
     """Scatter plot of multi-objective trade-offs (e.g. Accuracy vs Parameters)."""
     if not records:
         return "No pareto records provided."

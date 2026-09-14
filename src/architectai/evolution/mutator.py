@@ -39,22 +39,18 @@ class Mutator:
         return mutated
 
     def _mutate_params(self, graph: ArchitectureGraph) -> None:
-        conv_nodes = [
-            n for n in graph.primitives.values()
-            if n.config.op == OperationType.CONV2D
-        ]
+        conv_nodes = [n for n in graph.primitives.values() if n.config.op == OperationType.CONV2D]
         if conv_nodes:
             target = random.choice(conv_nodes)
             params = dict(target.config.params)
             params["filters"] = random.choice(self.filter_choices)
             params["kernel_size"] = random.choice(self.kernel_choices)
-            target.config = NodeConfig(
-                op=OperationType.CONV2D, params=params
-            )
+            target.config = NodeConfig(op=OperationType.CONV2D, params=params)
 
     def _mutate_op_swap(self, graph: ArchitectureGraph) -> None:
         swappable = [
-            n for n in graph.primitives.values()
+            n
+            for n in graph.primitives.values()
             if n.config.op in (OperationType.RELU, OperationType.BATCHNORM)
         ]
         if swappable:

@@ -9,7 +9,6 @@ class Registry:
         self._registry: Dict[str, Any] = {}
 
     def register(self, key_or_func: Optional[Union[str, Callable]] = None):
-
         """Register item directly or as a decorator."""
         if callable(key_or_func):
             func = key_or_func

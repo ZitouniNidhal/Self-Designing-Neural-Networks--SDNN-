@@ -1,9 +1,7 @@
 from typing import Dict, List, Optional
 
 
-def plot_evolution(
-    history: List[Dict[str, float]], save_path: Optional[str] = None
-) -> str:
+def plot_evolution(history: List[Dict[str, float]], save_path: Optional[str] = None) -> str:
     """Plot evolution history (max, mean, min fitness over generations)."""
     if not history:
         return "No evolution history provided."

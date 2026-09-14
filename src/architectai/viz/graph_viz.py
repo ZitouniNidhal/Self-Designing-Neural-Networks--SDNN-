@@ -3,9 +3,7 @@ from typing import Optional
 from ..core.graph import ArchitectureGraph
 
 
-def plot_graph(
-    graph: ArchitectureGraph, save_path: Optional[str] = None
-) -> str:
+def plot_graph(graph: ArchitectureGraph, save_path: Optional[str] = None) -> str:
     """Plot or summarize the architecture graph layout."""
     try:
         import matplotlib.pyplot as plt
@@ -13,10 +11,7 @@ def plot_graph(
 
         fig, ax = plt.subplots(figsize=(8, 6))
         pos = nx.spring_layout(graph.graph)
-        labels = {
-            n: f"{n}\n({graph.get_primitive(n).config.op})"
-            for n in graph.graph.nodes()
-        }
+        labels = {n: f"{n}\n({graph.get_primitive(n).config.op})" for n in graph.graph.nodes()}
         nx.draw(
             graph.graph,
             pos,

@@ -67,9 +67,7 @@ class Population:
         )
         self.individuals = sorted_pop[: self.max_size]
         valid_names = {g.name for g in self.individuals}
-        self.scores = {
-            k: v for k, v in self.scores.items() if k in valid_names
-        }
+        self.scores = {k: v for k, v in self.scores.items() if k in valid_names}
 
     def __len__(self) -> int:
         return len(self.individuals)

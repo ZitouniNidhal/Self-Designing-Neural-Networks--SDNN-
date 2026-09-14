@@ -20,16 +20,10 @@ def build_tinyml_architecture():
 
 
 def main(output_path: Optional[str] = None):
-    output_path = (
-        output_path or "experiments/results/tinyml_example.py"
-    )
-    constraints = HardwareConstraints(
-        max_params=50_000, max_memory_mb=16
-    )
+    output_path = output_path or "experiments/results/tinyml_example.py"
+    constraints = HardwareConstraints(max_params=50_000, max_memory_mb=16)
     architect = Architect()
-    graph = architect.discover(
-        task="image_classification", iterations=5, constraints=constraints
-    )
+    graph = architect.discover(task="image_classification", iterations=5, constraints=constraints)
 
     if graph is None:
         graph = build_tinyml_architecture()
