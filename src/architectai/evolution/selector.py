@@ -4,7 +4,5 @@ from ..core.graph import ArchitectureGraph
 
 
 class Selector:
-    def select(
-        self, candidates: List[ArchitectureGraph], k: int = 1
-    ) -> List[ArchitectureGraph]:
+    def select(self, candidates: List[ArchitectureGraph], k: int = 1) -> List[ArchitectureGraph]:
         return candidates[:k]

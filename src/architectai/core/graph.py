@@ -20,13 +20,8 @@ class ArchitectureGraph:
 
     def add_connection(self, source_id: str, target_id: str):
         """Add a directed edge between two primitives."""
-        if (
-            source_id not in self.primitives
-            or target_id not in self.primitives
-        ):
-            raise ValueError(
-                f"Nodes {source_id} or {target_id} not found in graph."
-            )
+        if source_id not in self.primitives or target_id not in self.primitives:
+            raise ValueError(f"Nodes {source_id} or {target_id} not found in graph.")
         self.graph.add_edge(source_id, target_id)
 
     def get_primitive(self, node_id: str) -> Primitive:

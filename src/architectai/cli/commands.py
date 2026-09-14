@@ -35,7 +35,4 @@ def discover(task: str, iterations: int, output: str):
     architect = Architect()
     graph = architect.discover(task=task, iterations=iterations)
     architect.export(graph, output)
-    console.print(
-        f"[bold green]Success![/bold green] "
-        f"Best architecture saved to {output}"
-    )
+    console.print(f"[bold green]Success![/bold green] " f"Best architecture saved to {output}")

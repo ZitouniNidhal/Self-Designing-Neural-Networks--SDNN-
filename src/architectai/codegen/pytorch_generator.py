@@ -37,13 +37,9 @@ class PyTorchGenerator:
                 sections.append(f"        self.{node_id} = nn.BatchNorm2d(32)")
             elif primitive.config.op == OperationType.LINEAR:
                 out_features = primitive.config.params.get("out_features", 10)
-                sections.append(
-                    f"        self.{node_id} = nn.Linear(128, {out_features})"
-                )
+                sections.append(f"        self.{node_id} = nn.Linear(128, {out_features})")
             elif primitive.config.op == OperationType.MAXPOOL2D:
-                sections.append(
-                    f"        self.{node_id} = nn.MaxPool2d(kernel_size=2)"
-                )
+                sections.append(f"        self.{node_id} = nn.MaxPool2d(kernel_size=2)")
 
         sections.append("\n    def forward(self, x):")
         for node_id in self.graph.topological_sort():

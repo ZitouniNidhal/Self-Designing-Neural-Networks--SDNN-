@@ -38,9 +38,7 @@ class Architect:
         for i in range(iterations):
             # Sample a candidate
             depth = random.randint(3, 8)
-            candidate = self.search_space.sample_random_architecture(
-                depth=depth
-            )
+            candidate = self.search_space.sample_random_architecture(depth=depth)
 
             # Check constraints
             if evaluator.satisfies(candidate):
@@ -49,14 +47,9 @@ class Architect:
                 if score > best_score:
                     best_score = score
                     self.best_graph = candidate
-                    logger.debug(
-                        f"Iter {i}: Found new best architecture "
-                        f"(score: {score:.4f})"
-                    )
+                    logger.debug(f"Iter {i}: Found new best architecture " f"(score: {score:.4f})")
             else:
-                logger.debug(
-                    f"Iter {i}: Candidate rejected by hardware constraints"
-                )
+                logger.debug(f"Iter {i}: Candidate rejected by hardware constraints")
 
         if self.best_graph:
             logger.info(
@@ -64,10 +57,7 @@ class Architect:
                 f"score: [green]{best_score:.4f}[/green]"
             )
         else:
-            logger.warning(
-                "⚠️ No architecture found that satisfies "
-                "the given constraints."
-            )
+            logger.warning("⚠️ No architecture found that satisfies " "the given constraints.")
 
         return self.best_graph
 
@@ -76,9 +66,7 @@ class Architect:
         if graph is None:
             raise ValueError("No architecture graph available to export.")
 
-        logger.info(
-            f"📦 Exporting best architecture to [magenta]{path}[/magenta]"
-        )
+        logger.info(f"📦 Exporting best architecture to [magenta]{path}[/magenta]")
         from ..codegen.compiler import Compiler
 
         compiler = Compiler()
