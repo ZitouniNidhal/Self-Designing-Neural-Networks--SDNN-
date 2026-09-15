@@ -21,9 +21,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt -r requirements-dev.txt
       - name: Check formatting with black
-        run: black --check .
+        run: black --check . --exclude "\.md$"
       - name: Check import order with isort
-        run: isort --check-only .
+        run: isort --check-only . --filter-files
       - name: Run flake8
         run: flake8 src tests
       - name: Run mypy
